@@ -11,3 +11,9 @@
   display: inline-block;
   margin: 1% 5%;
 }
+
+/* artist */
+.artist-thumbnail {
+  height: 150px;
+  width: 150px;
+}

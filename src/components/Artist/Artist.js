@@ -9,7 +9,7 @@ const Artist = props => {
   return (
     <div>
       <h2>{artist.strArtist}</h2>
-      <img
+      <img className='artist-thumbnail'
         src={artist.strArtistThumb}
         alt={artist.strArtist} />
     </div>
