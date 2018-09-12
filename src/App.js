@@ -12,8 +12,9 @@ class App extends Component {
     return (
       <div className='App'>
         <Navigation />
-        <UserArtists />
         <AddArtist />
+
+        <UserArtists />
         <Concerts />
         <RelatedArtists />
       </div>

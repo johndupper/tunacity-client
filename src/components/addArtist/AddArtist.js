@@ -1,26 +1,26 @@
 import React, { Component } from 'react'
+import axios from 'axios'
+
+import SearchForm from './SearchForm'
+import ArtistList from '../Artist/ArtistList'
 
 export default class AddArtist extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      searchValue: ''
-    }
-    this.handleChange = this.handleChange.bind(this)
-    this.submitForm = this.submitForm.bind(this)
+    this.state = { artists: [] }
+
+    this.search = this.search.bind(this)
   }
 
-  handleChange (event) {
-    this.setState({
-      value: event.target.value
-    })
-  }
-
-  submitForm (event) {
-    event.preventDefault()
-    this.setState({
-      value: event.target.value
-    })
+  search (artist) {
+    axios
+      .get(`http://www.theaudiodb.com/api/v1/json/1/search.php?s=${artist}`)
+      .catch(error => console.error(error.message))
+      .then(response => {
+        // todo: ui for no artist found
+        if (!response.data.artists) return
+        this.setState({ artists: response.data.artists })
+      })
   }
 
   render () {
@@ -28,16 +28,11 @@ export default class AddArtist extends Component {
       <div className={'add-artist'}>
         <h1 className={'add-artist-header'}>Add Artist</h1>
 
-        <form onSubmit={this.submitForm}>
-          <label>Artist:</label>
-          <input
-            type='text'
-            value={this.state.searchValue}
-            onChange={this.handleChange} />
-          <input
-            type='submit'
-            value='Search Artists' />
-        </form>
+        <SearchForm onSearch={this.search} />
+
+        <div>
+          <ArtistList data={this.state.artists} />
+        </div>
       </div>
     )
   }
