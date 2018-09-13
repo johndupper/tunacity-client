@@ -13,10 +13,11 @@ export default class App extends Component {
     return (
       <div className='App'>
         <Navigation />
-        <Route exact path='/' component={UserArtists} />
-        <Route path='/artist/new' component={AddArtist} />
-        <Route path='/artist/related' component={RelatedArtists} />
-        <Route path='/concerts' component={Concerts} />
+        {/* render is how props are passed to component */}
+        <Route exact path='/' render={() => <UserArtists />} />
+        <Route exact path='/artist/new' component={AddArtist} />
+        <Route exact path='/artist/related' component={RelatedArtists} />
+        <Route exact path='/concerts' component={Concerts} />
       </div>
     )
   }

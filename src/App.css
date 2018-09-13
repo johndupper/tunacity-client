@@ -7,9 +7,13 @@
   border: 1px solid black;
 }
 
-.navigation-option {
+.navigation-item {
   display: inline-block;
   margin: 1% 5%;
+}
+
+.active {
+  color: forestgreen;
 }
 
 /* artist */
