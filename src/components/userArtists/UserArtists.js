@@ -6,9 +6,7 @@ export default class UserArtists extends Component {
       <div className={'user-artists'}>
         <h1>My Artists</h1>
         <ul className={'user-artists-list'}>
-          <li className={'user-artists-list-artist'}>Artist 1</li>
-          <li className={'user-artists-list-artist'}>Artist 2</li>
-          <li className={'user-artists-list-artist'}>Artist 3</li>
+          {/* user artists */}
         </ul>
       </div>
     )

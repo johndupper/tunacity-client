@@ -4,7 +4,6 @@ export default class SearchForm extends Component {
   constructor (props) {
     super(props)
     this.state = { searchText: '' }
-
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
